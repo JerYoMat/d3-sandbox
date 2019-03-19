@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as d3 from "d3";
+
+const App = () => {
+  let linearScale = d3.scaleLinear()
+    .domain([0,100])
+    .range([0,600])
+    .clamp(true);  // limits values to the top of the range
+  
+    return (
+    <ul>
+      <li>{linearScale(0)}</li>
+      <li>{linearScale(50)}</li>
+      <li>{linearScale(105)}</li>
+    </ul>
+  )
+
+}
+
+
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
